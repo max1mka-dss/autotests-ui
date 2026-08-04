@@ -1,5 +1,5 @@
 from tabnanny import check
-
+from components.navigation.sidebar_component import SidebarComponent
 from pages.base_page import BasePage
 from playwright.sync_api import Page,expect
 from components.navigation.nav_bar_component import NavbarComponent
@@ -9,6 +9,8 @@ class DashboardPage(BasePage):
 
         #navbar
         self.navbar = NavbarComponent(page)
+        self.sidebar = SidebarComponent(page)
+
 
         self.dashboard_title = page.get_by_test_id('dashboard-toolbar-title-text')
         self.students_title = page.get_by_test_id('students-widget-title-text')
